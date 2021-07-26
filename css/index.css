@@ -1,0 +1,213 @@
+/* #region all sizes */
+
+/* make flexible items of sections */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+/* main image */
+.main-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*reposition the title*/
+    transform: translate3d(-50%, -50%, 0);
+    width: 100vw;
+    height: 100%;
+    background: linear-gradient(
+        0deg,
+        var(--primary-dark-color),
+        var(--primary-color) 50%
+    );
+    z-index: 0;
+}
+
+/*text z index*/
+main * {
+    z-index: 10;
+}
+
+main p {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    font-size: 1.2em;
+}
+h2 {
+    /* outline: 2px solid lime; */
+    text-align: center;
+    font-family: monospace;
+    font-size: 2.5em;
+    margin: 1rem 0;
+}
+h3 {
+    margin: 6rem 0 1rem;
+}
+h4 {
+    margin: 4rem 0 1rem;
+}
+/*code snippets*/
+code {
+    background-color: rgba(128, 128, 128, 0.1);
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+    padding: 3rem 1rem;
+}
+pre {
+    width: fit-content;
+}
+
+/* #endregion all sizes */
+/* #region small */
+@media (max-width: 768px) {
+    :root {
+        --nav-height: 4rem;
+    }
+    main {
+        position: relative;
+        top: 100vh;
+    }
+    .bg-div {
+        width: 100%;
+        height: calc(100vh - var(--nav-height)); /* remove nav bar height */
+        position: fixed; /* we don't want it to scroll */
+        top: var(--nav-height);/*set it on top*/
+    }
+    .bg-img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;/*fill the block*/
+    }
+    /* #region moving star animation and quote */
+    /* this section includes a quote and an animation of a moving star, this section shows only on small screens */
+    .bg-star {
+        /* the star styling with a changing size animation */
+        width: 7rem;
+        height: 7rem;
+        opacity: 0.6;
+        background: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 1) 10%,
+            rgba(128, 0, 128, 0.9) 40%,
+            rgba(128, 0, 128, 0.3) 60%
+        );
+        box-shadow: 0 0 20px 40px rgba(128, 0, 128, 0.3);
+        border-radius: 50%;
+        animation: change-size 30s linear infinite;
+    }
+    /* the star container*/
+    .bg-star-outer {
+        /* the star container for circular movement */
+        position: fixed;
+        top: 15%;
+        left: 15%;
+        animation: moving-star 30s ease-in-out infinite;
+    }
+
+    /*animation*/
+    @keyframes moving-star {
+        from {
+            transform: rotate(0deg) translateX(-100px) rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg) translateX(-100px) rotate(-360deg);
+        }
+    }
+
+    @keyframes change-size {
+        0% {
+            opacity: 0.6;
+        }
+        50% {
+            opacity: 0.9;
+            transform: scale(1.7);
+        }
+    }
+    /*qoute appers on smaller screens*/
+    .bg-quote {
+        /* a quote placed on bottom right */
+        position: fixed;
+        top: 70%;
+        left: 90%;
+        transform: translateX(-90%) translateY(-70%);
+        font-family: 'Akaya Kanadaka', cursive;
+        font-size: 1.5rem;
+        text-shadow: 1px 1px var(--primary-color);
+        color: var(--primary-dark-color);
+    }
+
+    /* #endregion moving star animation and quote */
+    code {
+        width: calc(100vw - 20px);
+        overflow-x: auto;
+    }
+    pre {
+        width: min-content;
+        overflow-x: auto;
+    }
+    footer {
+        position: relative;
+        top: 100vh;
+    }
+}
+
+/* #endregion small */
+/* #region medium&large */
+@media (min-width: 769px) {
+     /*reposition the footer*/
+    main,
+    footer {
+        position: relative;
+        top: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 500;
+    }
+
+    /*animation hide on smaller screens*/
+    .bg-star-outer,
+    .bg-quote {
+        display: none;
+    }
+    .bg-div {
+        position: fixed;
+        top: var(--nav-height);
+        height: calc(100vh - var(--nav-height)); /* remove nav bar height */
+        width: 100%;
+        max-width: 1920px;
+    }
+    .bg-img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+  /*reposition the title*/
+    header {
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-15%);
+        background-color: transparent;
+        z-index: 100;
+    }
+
+    h3 {
+        align-self: flex-start;
+        font-size: 1.5rem;
+        font-weight: 500;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+            Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    footer {
+        width: 100%;
+    }
+}
+
+/* #endregion medium&large */

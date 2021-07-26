@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">  -->
+
+        <title>Astronerds</title>
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/index.css" />
+        <script src="./js/add-head-links.js"></script>
+    </head>
+    <body>
+        <nav id="nav-menu"></nav>
+        <header>
+            <h1>Astronerds</h1>
+        </header>
+
+
+        <div id="bg-div" class="bg-div">
+            <div class="bg-star-outer">
+                <div class="bg-star"></div>
+            </div>
+            <div class="bg-quote">
+                <p>the darker the night the brighter the stars</p>
+            </div>
+            <img
+                class="bg-img"
+                src="./images/normal/n2.jpg"
+                alt="background night sky image"
+                width="1280"
+                height="853"
+            />
+        </div>
+
+
+        <main>
+            <div class="main-bg"></div>
+            <section>
+                <h2>why?</h2>
+                <p>
+                    The idea behind Astronerds is to make it easy for people to
+                    explore and learn about the field of astrophotography also
+                    know as astronomical imaging, which is photography of
+                    astronomical objects, celestial events, and areas of the
+                    night sky. We do that by giving our visitors the opportunity
+                    to get mesmerized by a variety of breath taking night sky
+                    photos taken by fellow astronerds, and helping other
+                    professionals sell their mind-blowing art pieces with zero
+                    commission.
+                </p>
+                <h2>a little history</h2>
+                <p>
+                    The development of astrophotography as a scientific tool was
+                    pioneered in the mid-19th century for the most part by
+                    experimenters and amateur astronomers, or so-called
+                    "gentleman scientists" (although, as in other scientific
+                    fields, these were not always men). Because of the very long
+                    exposures needed to capture relatively faint astronomical
+                    objects, many technological problems had to be overcome.
+                    These included making telescopes rigid enough so they would
+                    not sag out of focus during the exposure, building clock
+                    drives that could rotate the telescope mount at a constant
+                    rate, and developing ways to accurately keep a telescope
+                    aimed at a fixed point over a long period of time. Early
+                    photographic processes also had limitations. The
+                    daguerreotype process was far too slow to record anything
+                    but the brightest objects, and the wet plate collodion
+                    process limited exposures to the time the plate could stay
+                    wet.
+                </p>
+                <p>
+                    The first known attempt at astronomical photography was by
+                    Louis Jacques Mandé Daguerre, inventor of the daguerreotype
+                    process which bears his name, who attempted in 1839 to
+                    photograph the Moon. Tracking errors in guiding the
+                    telescope during the long exposure meant the photograph came
+                    out as an indistinct fuzzy spot. John William Draper, New
+                    York University Professor of Chemistry, physician and
+                    scientific experimenter managed to make the first successful
+                    photograph of the moon a year later on March 23, 1840,
+                    taking a 20-minute-long daguerreotype image using a 5-inch
+                    (13 cm) reflecting telescope.
+                </p>
+            </section>
+
+            <section class="gallery-desc">
+                <h2>gallery implementation</h2>
+
+                <section class="spiral-desc">
+                    <h3>spiral - grid gallery</h3>
+                    <p>
+                        spiral gallery implements a grid container for the
+                        gallery with two different styles, one for small screens
+                        and another for screens above medium size.
+                    </p>
+                    <h4><i class="fal fa-mobile-android"></i> small screens</h4>
+                    <code>
+                        <pre>
+    .grid-gallery {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        row-gap: 1rem;
+        margin: 5rem 0;
+    }
+
+    .grid-gallery div {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+ 
+    .grid-img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+                        </pre>
+                    </code>
+
+                    <h4><i class="far fa-laptop"></i> medium and above</h4>
+                    <code>
+                        <pre>
+    .grid-gallery {
+        display: grid; 
+        grid-auto-rows: auto;
+        grid-auto-columns: auto;
+        align-items: center;    /* aligns items vertically inside each cell */
+        justify-items: center;  /* aligns items horizontally inside each cell */
+        gap: 10px 10px; 
+        justify-content: center;    /* aligns entire grid horizontally */
+    }
+
+    .s1 { grid-area: 1 / 1 / 3 / 3; }
+    .s2 { grid-area: 1 / 3 / 5 / 6; }
+    .s3 { grid-area: 3 / 1 / 5 / 3; }
+    .s4 { grid-area: 5 / 4 / 7 / 6; }
+    .s5 { grid-area: 5 / 3 / 6 / 4; }
+    .s6 { grid-area: 6 / 3 / 7 / 4; }
+    .s7 { grid-area: 5 / 1 / 7 / 3; }
+    .s8 { grid-area: 7 / 4 / 9 / 6; }
+    .s9 { grid-area: 7 / 1 / 9 / 2; }
+    .s10 { grid-area: 7 / 2 / 9 / 4; }
+    .s11 { grid-area: 9 / 1 / 13 / 4; }
+    .s12 { grid-area: 9 / 4 / 13 / 6; }
+    
+    .grid-gallery div {
+        position: relative;
+    }
+
+    .grid-img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+                        </pre>
+                    </code>
+                </section>
+
+                <section class="normal-desc">
+                    <h3>normal - flex gallery</h3>
+                    <p>
+                        normal gallery implements a flexbox container, it has
+                        two different styles one for small screens and the other
+                        for above medium screen sizes.
+                    </p>
+                    <h4><i class="fal fa-mobile-android"></i> small screens</h4>
+                    <code>
+                        <pre>
+    .flex-gallery {
+        margin: 5rem 0 ;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flex-cell {
+        position: relative;
+        padding: 5px 10px;
+    }
+
+    .cell-img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+                        </pre>
+                    </code>
+
+                    <h4><i class="far fa-laptop"></i> medium and above</h4>
+                    <code>
+                        <pre>
+    .flex-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: 7rem 0;
+        width: 100%;
+        max-height: 2000px;
+    }
+
+    .inner-flex-gallery {
+        display: flex;
+        flex-direction: column;
+        max-width: 50%;
+    }
+
+    .flex-cell {
+        position: relative;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .cell-img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+                        </pre>
+                    </code>
+
+                    <p></p>
+                </section>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; Astronerds 2021</p>
+        </footer>
+    </body>
+</html>

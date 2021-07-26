@@ -1,0 +1,335 @@
+/* #region all sizes */
+
+/* import a google font */
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
+/* init page */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* init variables */
+:root {
+    --primary-color: #242526;
+    --primary-dark-color: #18191A;
+    --primary-light-color: #3A3B3C;
+    --secondary-color: #E4E6EB;
+    --secondary-dark-color: #B0B3B8;
+    --on-primary: #f2f2ff;
+    --on-secondary: #101010;
+    --purple-very-dark: #240046;
+    --purple-dark: #3c096c;
+    --purple: #5a189a;
+    --purple-light: #7b2cbf;
+    --purple-very-light: #c77dff;
+    /* --on-primary: 0d0d00;
+    --primary-dark-color: #e7e6e5;
+    --primary-color: #dbdad9;
+    --primary-light-color: #c5c4c3;
+    --secondary-color: #e4e6eb;
+    --secondary-dark-color: #b0b3b8;
+    --purple-very-dark: #dbffb9;
+    --purple-dark: #c3f693;
+    --purple: #a5e765;
+    --purple-light: #84d340;
+    --purple-very-light: #388200; */
+    --nav-height: 5rem;
+    background-color: var(--primary-dark-color);
+    /* disable user select */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    /* enable user select */
+    /* -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -o-user-select: text;
+    user-select: text; */
+}
+
+/* set main body to all pages*/
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    color: var(--on-primary);
+    /* invert color */
+    background: linear-gradient(0deg, var(--primary-dark-color), var(--primary-color) 50%);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* hide scrollbars for IE, Edge and Firefox */
+    -ms-text-overflow: none;
+    /*set text that will not fit in the box */
+    text-overflow: clip; 
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    /* hide scrollbars for Chrome */
+    display: none;
+}
+
+/*make header at center on small screens*/
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+/*invert color button */
+.invert-color {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  height: var(--nav-height);
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.invert-color:hover {
+    background-color: var(--primary-light-color);
+}
+
+/*invert color button icon*/
+.fa-repeat {
+    margin-right: 5px;
+}
+
+h1 {
+    font-size: 3em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/*re align the text section first */
+main {
+    width: 90%;
+    max-width: 1000px;
+    line-height: 1.5;
+    flex: 1;    /* keep footer at the bottom */
+}
+footer {
+    width: 100%;
+    height: auto;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer p {
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+/* #region top navigation menu */
+nav {
+    z-index: 1000;
+    width: 100%;
+    height: var(--nav-height);
+    background-color: var(--primary-dark-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+}
+
+/*top navigation menu*/
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+.nav-link {
+    color: var(--on-primary);
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    line-height: var(--nav-height);
+}
+.nav-link:hover {
+    background: linear-gradient(40deg, var(--secondary-color), var(--primary-color) 30%, var(--primary-dark-color) 70%);
+    border-top-left-radius: 80%;
+    border-bottom-right-radius: 30%;
+    transition: 0.3s;
+}
+
+/*gallery image names on click */
+.img-name {
+    /* image name to show on hover */
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
+    width: calc(100% - 20px);   /* for normal gallery only small screens*/
+    background-color: rgba(128, 128, 128, 0.2);    
+    text-align: center;
+    padding: 5px;
+}
+
+
+
+
+/* #endregion navigation menu */
+/* #endregion all sizes */
+/* #region small  */
+@media (max-width: 768px) {
+    :root {
+        --nav-height: 4rem;
+    }
+    body {
+        font-size: 0.8rem;
+    }
+    /* does not make change*/
+    header {
+        z-index: 100;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: var(--nav-height);
+        background-color: var(--primary-dark-color);
+    }
+    /*set invert button at bottom on side menu*/
+    .invert-color {
+        position: absolute;
+        top: 90%;
+        right: 0;
+        font-size: 0.8rem;
+        cursor: pointer;
+        height: 3rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        margin: 0.5rem;
+    }
+
+    /*re align the text*/
+    main {
+        font-size: 1.15em;
+        text-align: justify;
+        padding: 0rem 1rem 3rem 1rem;
+        /*quick height fix*/
+        position: relative;
+        top: var(--nav-height);
+    }
+
+    /*reposition the menu nav*/
+    nav {
+        z-index: 1000;
+        width: auto;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: fixed;
+        /*otherwise items goes to deep in the side*/
+        right: -2000px;
+        top: 0;
+        /* box-shadow: 200px 0 200px 100vw rgba(200, 200, 200, 0.7); */
+        box-shadow: 0 0 20px 2px var(--purple-very-light);
+    }
+    /*set col on nav*/
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+    }
+    /*correct the sizes*/
+    .nav-link {
+        display: inline-block;
+        width: 100%;
+        font-size: 1.3em;
+        padding: 0 1rem;
+        align-self: flex-start;
+    }
+    .nav-link:active {
+        background-color: var(--secondary-color);
+        color: var(--primary-dark-color);
+    }
+
+    /*correct the icons*/
+    .fa-bars, .fa-times {
+        display: block;
+        font-size: 40px;
+        width: 5rem;
+        height: 5rem;
+        text-align: center;
+        padding:1rem;
+    }
+
+    /* open menu button */
+    .fa-bars {
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+    /* close menu button */
+    .fa-times {
+        margin: 1rem 1rem 3rem 1rem;
+    }
+  }
+
+/* #endregion small */
+/* #region medium */
+@media (min-width: 769px) and (max-width: 1200px) {
+
+    body {
+        /* to prevent jumping of elements when js insert nav menu */
+        margin-top: var(--nav-height);
+        /* min-height: calc(100vh - var(--nav-height)); */
+        }
+        
+    nav {
+        left: 0;    /* to cancel right: -2000px which hides the menu on phones*/
+    }
+
+    .nav-link {
+        padding: 0 2rem;
+    }
+    
+    .fa-bars, .fa-times {
+        display: none;      /* remove nav menu controls */
+    }
+    
+}
+
+/* #endregion medium */
+
+
+/* #region large */
+@media (min-width: 1201px) {
+
+    body {
+    /* to prevent jumping of elements when js insert nav menu */
+    margin-top: var(--nav-height);
+    /* min-height: calc(100vh - var(--nav-height)); */
+    }
+
+    nav {
+        left: 0;    /* to cancel right: -2000px which hides the menu on phones*/
+    }
+
+    .nav-link {
+        padding: 0 2rem;
+    }
+
+    .fa-bars, .fa-times {
+        display: none;
+    }
+
+
+}
+
+/* #endregion large */

@@ -1,0 +1,105 @@
+/* #region all sizes */
+/* #endregion all sizes */
+/* #region small */
+
+/**/
+@media (max-width: 768px) {
+    /*set items to be flexible*/
+    main {
+        display: flex;
+             /*set galllery col direction*/
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+    }
+    /*description of the gallery*/
+    .desc {
+        margin-top: 3rem;
+        padding: 0 1.25rem;
+    }
+    /*gallery for small devices*/
+    .flex-gallery {
+        margin: 5rem 0 ;
+        display: flex;
+        /*set galllery col direction*/
+        flex-direction: column;
+        align-items: center;
+    }
+     /*cell */
+    .flex-cell {
+        position: relative;
+        padding: 5px 10px;
+    }
+     /*image */ 
+    .cell-img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    /*set animitaion on hover*/
+    .flex-cell:hover .img-name  {
+        font-family: 'Akaya Kanadaka', cursive;
+        font-size: 1.2rem;
+        opacity: 1;
+        transition: 1s;
+    }
+    .flex-cell:hover .cell-img {
+        opacity: 0.5;
+        transition: 0.5s;
+    }
+}
+
+/* #endregion small */
+/* #region medium&large */
+@media (min-width: 769px) {
+    /*re align description*/
+    main, .desc {
+        margin: 5rem 0;
+    }
+   /*gallery set col direction*/
+   /*gallery for big devices*/
+    .flex-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: 7rem 0;
+        width: 100%;
+        /*divide in two columns*/
+        max-height: 2000px;
+    }
+    /*gallery make it hold the colunms*/
+    .inner-flex-gallery {
+        display: flex;
+        flex-direction: column;
+        max-width: 50%;
+    }
+    /*cell */
+    .flex-cell {
+        position: relative;
+        width: 100%;
+        padding: 5px;
+    }
+   /*image */
+    .cell-img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+     /*set animitaion on hover*/
+    .flex-cell:hover .img-name  {
+        font-family: 'Akaya Kanadaka', cursive;
+        font-size: 1.2rem;
+        width: calc(100% - 10px);
+        opacity: 1;
+        transition: 1s;
+    }
+    .flex-cell:hover .cell-img {
+        opacity: 0.5;
+        transition: 0.5s;
+    }
+}
+
+/* #endregion medium&large */
+
